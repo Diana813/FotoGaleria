@@ -6,3 +6,6 @@ const DB_PASSWORD = 'T{Gb3/+f#6,7z9qp';
 const DB_NAME = 'diana_com';
 
 $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+if ($mysqli->connect_error) {
+    error_log('Brak kontaktu z bazą: ' . $mysqli->connect_error);
+}

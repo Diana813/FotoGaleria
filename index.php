@@ -6,7 +6,7 @@
     <title>Moja Strona Logowania</title>
 </head>
 <body>
-<h1><a href="login/login.php">Zaloguj się</a></h1>
+<h1><a href="login/login_file.php">Zaloguj się</a></h1>
 </body>
 </html>
 

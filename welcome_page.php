@@ -1,6 +1,8 @@
 <?php
 session_start();
-user_verification::checkIfUserIsLoggedIn();
+require($_SERVER['DOCUMENT_ROOT'] . "/utils/UserVerification.php");
+
+UserVerification::checkIfUserIsLoggedIn();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +16,7 @@ user_verification::checkIfUserIsLoggedIn();
     </style>
 </head>
 <body>
-<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Witaj na naszej stronie.</h1>
+<h1 class="my-5">Cześć, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Witaj na naszej stronie.</h1>
 <p>
     <a href="/login/reset_password.php" class="btn btn-warning">Resetuj hasło</a>
     <a href="/login/logout.php" class="btn btn-danger ml-3">Wyloguj się</a>

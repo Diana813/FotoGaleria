@@ -1,9 +1,9 @@
 <?php
 session_start();
 require ($_SERVER['DOCUMENT_ROOT']."db/db_connection.php");
-user_verification::checkIfUserIsLoggedIn();
+UserVerification::checkIfUserIsLoggedIn();
 
-    $user_verification = new user_verification();
+    $user_verification = new UserVerification();
     $new_password = '';
     $confirm_password = '';
     $password_err = '';

@@ -2,6 +2,11 @@
 
 class db_service
 {
+    public static function selectUserData(): string
+    {
+        return "SELECT id, username, password FROM users WHERE username = ?";
+    }
+
     public static function selectUser(): string
     {
         return "SELECT id FROM users WHERE username = ?";

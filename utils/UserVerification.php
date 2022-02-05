@@ -1,6 +1,6 @@
 <?php
 
-class user_verification
+class UserVerification
 {
     public static function checkIfUserIsLoggedIn(){
         if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -9,7 +9,7 @@ class user_verification
         }
     }
 
-    public function getPasswordFormData(string &$password, &$password_err){
+    public function getPasswordFormData(string &$password, string &$password_err){
         if(empty(trim($_POST["password"]))){
             $password_err = "Wpisz hasło.";
         } elseif(strlen(trim($_POST["password"])) < 6){
@@ -20,7 +20,7 @@ class user_verification
     }
 
 
-    public function confirmPassword(string $password, &$confirm_password_err, string &$confirm_password){
+    public function confirmPassword(string $password, string &$confirm_password_err, string &$confirm_password){
         if(empty(trim($_POST["confirm_password"]))) {
             $confirm_password_err = "Potwierdź hasło.";
         }else{
