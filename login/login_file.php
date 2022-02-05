@@ -48,7 +48,7 @@ $mysqli->close();
             <span class="invalid-feedback"><?php echo $login->password_err; ?></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Login">
+            <input type="submit" class="btn btn-primary" value="Zaloguj się">
         </div>
         <p>Nie masz konta? <a href="/login/registration_file.php">Zarejestruj się!</a>.</p>
     </form>

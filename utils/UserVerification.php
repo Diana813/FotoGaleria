@@ -20,12 +20,12 @@ class UserVerification
     }
 
 
-    public function confirmPassword(string $password, string &$confirm_password_err, string &$confirm_password){
+    public function confirmPassword(string $password, string &$confirm_password_err, string &$confirm_password, string $password_err){
         if(empty(trim($_POST["confirm_password"]))) {
             $confirm_password_err = "Potwierdź hasło.";
         }else{
             $confirm_password = trim($_POST["confirm_password"]);
-            if (empty($this->errors->password_err) && ($password != $confirm_password)) {
+            if (empty($password_err) && ($password != $confirm_password)) {
                 $confirm_password_err = "Buuu, żle, nieeee.";
             }
         }

@@ -50,7 +50,8 @@ class Registration{
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $this->getUsernameFormData($mysqli);
             $this->user_verification->getPasswordFormData($this->password, $this->password_err);
-            $this->user_verification->confirmPassword($this->password, $this->confirm_password_err, $this->confirm_password);
+            $this->user_verification->confirmPassword($this->password, $this->confirm_password_err,
+                $this->confirm_password, $this->password_err);
             if($this->areDataValid()){
                 $sql = db_service::insertUser();
                 if($stmt = $mysqli->prepare($sql)){
