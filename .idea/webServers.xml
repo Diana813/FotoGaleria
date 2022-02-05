@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fdf6b46f-592d-42ec-8bfb-b2d77bc1c235" name="diana.com">
+        <fileTransfer rootFolder="/diana.com/public_html" accessType="SFTP" host="192.168.1.145" port="22" sshConfigId="71a196db-3ab3-49ca-8d31-44163f3f0fa7" sshConfig="webdev_diana_com@192.168.1.145:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
