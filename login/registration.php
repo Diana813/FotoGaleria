@@ -20,18 +20,18 @@ class Registration{
 
     private function getUsernameFormData(mysqli $mysqli){
         if(empty(trim($_POST["username"]))){
-            $this->username_err = "Przedstaw się.";
+            $this->username_err = ErrorStrings::$username_empty_err;
         } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-            $this->username_err = "Twoje imię może zawierać tylko litery, cyfry i podkreślenia.";
+            $this->username_err = ErrorStrings::$username_wrong_digits_err;
         } else{
-            $sql = db_service::selectUser();
+            $sql = DbService::selectUser();
             if($stmt = $mysqli->prepare($sql)) {
                 $stmt->bind_param("s", $param_username);
                 $param_username = trim($_POST["username"]);
                 if ($stmt->execute()) {
                     $stmt->store_result();
                     if ($stmt->num_rows == 1) {
-                        $this->username_err = "Ktoś już się tak nazywa...";
+                        $this->username_err = ErrorStrings::$username_taken_err;
                     } else {
                         $this->username = trim($_POST["username"]);
                     }
@@ -53,7 +53,7 @@ class Registration{
             $this->user_verification->confirmPassword($this->password, $this->confirm_password_err,
                 $this->confirm_password, $this->password_err);
             if($this->areDataValid()){
-                $sql = db_service::insertUser();
+                $sql = DbService::insertUser();
                 if($stmt = $mysqli->prepare($sql)){
                     $stmt->bind_param("ss", $username, $password);
                     $username = $this->username;

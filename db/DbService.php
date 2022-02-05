@@ -1,6 +1,6 @@
 <?php
 
-class db_service
+class DbService
 {
     public static function selectUserData(): string
     {

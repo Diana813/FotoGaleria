@@ -1,8 +1,9 @@
 <?php
 session_start();
 require ($_SERVER['DOCUMENT_ROOT']."/db/db_connection.php");
-require_once ($_SERVER['DOCUMENT_ROOT']."/db/db_service.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/db/DbService.php");
 require($_SERVER['DOCUMENT_ROOT'] . "/utils/UserVerification.php");
+require_once ($_SERVER['DOCUMENT_ROOT']. "/utils/ErrorStrings.php");
 require ("reset_password.php");
 
 UserVerification::checkIfUserIsLoggedIn();

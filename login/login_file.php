@@ -2,8 +2,9 @@
 session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT']."/db/db_connection.php");
-require_once ($_SERVER['DOCUMENT_ROOT']."/db/db_service.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/db/DbService.php");
 require ("login.php");
+require_once ($_SERVER['DOCUMENT_ROOT']. "/utils/ErrorStrings.php");
 
 $password = $username = '';
 $login = new Login();

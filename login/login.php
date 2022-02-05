@@ -17,7 +17,7 @@ class Login {
 
     private function getUsername(){
         if(empty(trim($_POST["username"]))){
-            $this->username_err = "Wpisz nazwę użytkownika.";
+            $this->username_err = ErrorStrings::$username_empty_err;
         } else{
             $this->username = trim($_POST["username"]);
         }
@@ -25,7 +25,7 @@ class Login {
 
     private function getPassword(){
         if(empty(trim($_POST["password"]))){
-            $this->password_err = "Wpisz swoje hasło.";
+            $this->password_err = ErrorStrings::$password_empty_err;
         } else{
             $this->password = trim($_POST["password"]);
         }
@@ -46,7 +46,7 @@ class Login {
             $this->getUsername();
             $this->getPassword();
             if($this->areDataValid()){
-                $sql = db_service::selectUserData();
+                $sql = DbService::selectUserData();
                 if($stmt = $mysqli->prepare($sql)){
                     $stmt->bind_param("s", $param_username);
                     $param_username =  $this->username;
@@ -62,14 +62,14 @@ class Login {
                                     $_SESSION["username"] = $this->username;
                                     header("location: ../welcome_page.php");
                                 } else{
-                                    $this->login_err = "Nieprawidłowe hasło.";
+                                    $this->login_err = ErrorStrings::$login_err_password;
                                 }
                             }
                         } else{
-                            $this->login_err = "Nieprawidłowa nazwa użytkownika lub hasło.";
+                            $this->login_err = ErrorStrings::$login_err;
                         }
                     } else{
-                        echo "Oops! Nie siadło...";
+                        echo "Oops!";
                     }
 
                     $stmt->close();

@@ -2,7 +2,8 @@
 session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT']."/db/db_connection.php");
-require_once ($_SERVER['DOCUMENT_ROOT']."/db/db_service.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/db/DbService.php");
+require_once ($_SERVER['DOCUMENT_ROOT']. "/utils/ErrorStrings.php");
 require ($_SERVER['DOCUMENT_ROOT'] . "/utils/UserVerification.php");
 require ("registration.php");
 

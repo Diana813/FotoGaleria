@@ -29,7 +29,7 @@ class ResetPassword{
                 $this->confirm_password, $this->password_err);
             var_dump($this->new_password, $this->confirm_password);
             if ($this->areDataValid()) {
-                $sql = db_service::resetPassword();
+                $sql = DbService::resetPassword();
                 if ($stmt = $mysqli->prepare($sql)) {
                     $stmt->bind_param("si", $param_password, $param_id);
                     $param_password = password_hash($this->new_password, PASSWORD_DEFAULT);
